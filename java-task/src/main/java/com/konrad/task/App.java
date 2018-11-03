@@ -19,7 +19,8 @@ public class App
 {
     public static void main( String[] args )
     {
-    	Company ajaxInc = new Company("AJAX", "Ajax Incorporated", "+1424423425", new Address[]{new Address("Roadish","New Amsterdam", "23-325")}, new Language("English","ENG"), "YAMA");
+    try{
+    	Company ajaxInc = new Company("AJAX", "Ajax Incorporated", "+3254235523", new Address[]{new Address("Roadish","New Amsterdam", "23-325")}, new Language("English","ENG"), "YAMA");
 	Company borningLtd = new Company("FEEL", "Borning Limited", "+4845345345", new Address[]{new Address("Lubelska","Tarnow", "33-100"), new Address("Lakowa","Chrszeszczyzeboszyce", "38-110")}, new Language("Polish", "POL"), "AJAX");
 	Company conglomerate = new Company("CONG", "Just Conglomerate", "+5465465664", new Address[]{new Address("Palm Street","Freeville", "54-333"),new Address("Blanc vie","Lausanne", "32-358")}, new Language("French", "FRA"), "AJAX");
 	Company dartSys = new Company("DART", "Dart Systems", "+543543543", new Address[]{new Address("Strainght","City of Lights", "00-708")}, new Language("Suahili", "SAH"), "CONG");
@@ -63,6 +64,6 @@ public class App
 		System.out.println(language.getName()+" : "+language.getCode());
 	}
 
-
+    }catch(IllegalArgumentException exception){System.out.println("EXCEPTION: "+exception.getMessage());}
     }
 }

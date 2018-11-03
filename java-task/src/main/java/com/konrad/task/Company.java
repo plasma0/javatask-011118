@@ -4,6 +4,7 @@ import com.konrad.task.Address;
 import com.konrad.task.Language;
 import java.util.LinkedList;
 import java.util.Comparator;
+import java.lang.IllegalArgumentException;
 
 public class Company
 {
@@ -14,19 +15,23 @@ public class Company
 	protected Language language;
 	protected String parentCompany;
 
-	public Company(String identifier)
+	public Company(String identifier) throws IllegalArgumentException
 	{
+		if(!identifier.matches("([A-Z]{4})")) throw new IllegalArgumentException("Identifier need to be four capital letters");
 		this.identifier = identifier;
 		addresses = new LinkedList<Address> ();
 		language  = new Language("English","ENG");
 	}
 
-	public Company(String identifier, String name, String telephone, Address[] _addresses, Language language, String parentCompany)
+	public Company(String identifier, String name, String telephone, Address[] _addresses, Language language, String parentCompany) throws IllegalArgumentException
 	{
+		if(!identifier.matches("([A-Z]{4})")) throw new IllegalArgumentException("Identifier need to be four capital letters");
 		this.identifier = identifier;
 		this.name = name;
+		if(!telephone.matches("(\\+[0-9]{2}[0-9]+)")) throw new IllegalArgumentException("Telephone number need to be with country prefix");
 		this.telephone = telephone;
 		this.language = language;
+		if(!parentCompany.matches("([A-Z]{4})")) throw new IllegalArgumentException("Idetifier of parent company need to be four capital letters");
 		this.parentCompany = parentCompany;
 
 		addresses = new LinkedList<Address>();
@@ -52,8 +57,16 @@ public class Company
 		else return parentCompany;
 	}
 
-	public void setName(String name){this.name = name;}
-	public void setTelephone(String telephone){this.telephone = telephone;}
+	public void setName(String name) throws IllegalArgumentException{this.name = name;}
+	public void setTelephone(String telephone) throws IllegalArgumentException
+	{
+		if(!telephone.matches("(\\+[0-9]{2}[0-9]+)")) throw new IllegalArgumentException("Telephone number need to be with country prefix");
+		this.telephone = telephone;
+	}
 	public void setLanguage(Language language){this.language = language;}
-	public void setParentCompany(String parentCompany){this.parentCompany = parentCompany;}
+	public void setParentCompany(String parentCompany) throws IllegalArgumentException
+	{
+		if(!parentCompany.matches("([A-Z]{4})")) throw new IllegalArgumentException("Idetifier of parent company need to be four capital letters");
+		this.parentCompany = parentCompany;
+	}
 }
