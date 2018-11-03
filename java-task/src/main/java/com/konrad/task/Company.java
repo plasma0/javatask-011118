@@ -3,6 +3,7 @@ package com.konrad.task;
 import com.konrad.task.Address;
 import com.konrad.task.Language;
 import java.util.LinkedList;
+import java.util.Comparator;
 
 public class Company
 {
@@ -43,7 +44,7 @@ public class Company
 		if(telephone == null)return "NULL";
 		else return telephone;
 	}
-	public LinkedList<Address> getAdresses(){return addresses;}
+	public LinkedList<Address> getAddresses(){return addresses;}
 	public Language getLanguage(){return language;}
 	public String getParentCompany()
 	{
