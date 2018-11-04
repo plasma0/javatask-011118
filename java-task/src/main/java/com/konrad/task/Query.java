@@ -43,10 +43,10 @@ public class Query
 	{
 		LinkedList <Language> result = new LinkedList<Language>();
 		iterator = subject.listIterator();
-		do{
+		while(iterator.hasNext()){
 			Language language = iterator.next().getLanguage();
 			if(!result.contains(language))result.add(language);
-		}while(iterator.hasNext());
+		}
 
 		return result;
 	}

@@ -16,4 +16,17 @@ public class Language
 
 	public String getName(){return name;}
 	public String getCode(){return code;}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if(!(obj instanceof Language))return false;
+		return (((Language)obj).getName().equals(this.name) && ((Language)obj).getCode().equals(this.code));
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return 7*this.name.hashCode()+this.code.hashCode();
+	}
 }
