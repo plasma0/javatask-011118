@@ -9,5 +9,5 @@
 run: mvn package
 
 ## Execution
-run: exec:java -Dexec.mainClass="com.konrad.task.App"
+run: mvn exec:java -Dexec.mainClass="com.konrad.task.App"
 
